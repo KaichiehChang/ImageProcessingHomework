@@ -156,10 +156,11 @@ cv::Mat ExtractWatermarkFromLsbEmbeddedImage (const cv::Mat& EmbeddedImage) {
     int cols;
 
     ReconstructWatermark = cv::Mat::zeros (EmbeddedImage.size(), EmbeddedImage.type ());
+    
     rows = EmbeddedImage.rows;
     cols = EmbeddedImage.cols;
 
-    //Embed 4 bit of Watermark to OriginImage.
+    //Extract 4 bit of Watermark information from EmbeddedImage.
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
             ReconstructWatermark.at<uchar>(i, j) = ((EmbeddedImage.at<uchar>(i, j) & 0x0f) << 4);
