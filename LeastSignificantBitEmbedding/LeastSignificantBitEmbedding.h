@@ -27,6 +27,10 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+const unsigned int HIGH_NIBBLE_MASK = 0xf0;
+const unsigned int LOW_NIBBLE_MASK  = 0x0f;
+const unsigned int NIBBLE_SHIFT     = 4;
+
 /*
     Read the image in directory "./input/" and convert it to grayscale image.
 
