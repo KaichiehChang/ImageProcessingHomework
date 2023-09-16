@@ -143,7 +143,7 @@ cv::Mat LeastSignificantBitMethod (const cv::Mat& OriginImage, const cv::Mat& Wa
     //Embed 4 bit of Watermark to OriginImage.
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            EmbeddedImage.at<uchar>(i, j) = ((OriginImage.at<uchar>(i, j) & 0xf0 ) | ((Watermark.at<uchar>(i, j) & 0xf0) >> 4));
+            EmbeddedImage.at<uchar>(i, j) = ((OriginImage.at<uchar>(i, j) & HIGH_NIBBLE_MASK ) | ((Watermark.at<uchar>(i, j) & HIGH_NIBBLE_MASK) >> NIBBLE_SHIFT));
         }
     }
 
@@ -163,7 +163,7 @@ cv::Mat ExtractWatermarkFromLsbEmbeddedImage (const cv::Mat& EmbeddedImage) {
     //Extract 4 bit of Watermark information from EmbeddedImage.
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            ReconstructWatermark.at<uchar>(i, j) = ((EmbeddedImage.at<uchar>(i, j) & 0x0f) << 4);
+            ReconstructWatermark.at<uchar>(i, j) = ((EmbeddedImage.at<uchar>(i, j) & LOW_NIBBLE_MASK) << NIBBLE_SHIFT);
         }
     }
 
