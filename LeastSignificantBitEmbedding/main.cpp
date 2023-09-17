@@ -85,7 +85,7 @@ cv::Mat ReadGrayscaleImage (const std::string& ImageName) {
     try {
         ImagePath = "./input/" + ImageName;
 
-        //Ignore EXIF's orientation flag.
+        //Don't ignore EXIF's orientation flag.
         Image = cv::imread (ImagePath, cv::IMREAD_GRAYSCALE  );
 
         if (Image.empty ()) {
