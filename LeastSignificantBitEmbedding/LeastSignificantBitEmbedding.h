@@ -20,6 +20,9 @@
  * SOFTWARE.
  */
 
+#ifndef LEAST_SIGNIFICANTBIT_EMBEDDING_H
+#define LEAST_SIGNIFICANTBIT_EMBEDDING_H
+
 #include <bitset>
 #include <exception>
 #include <filesystem>
@@ -80,3 +83,5 @@ cv::Mat LeastSignificantBitMethod (
 cv::Mat ExtractWatermarkFromLsbEmbeddedImage (
     const cv::Mat& EmbeddedImage
     );
+
+#endif
